@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Cotización</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <!-- <h1>Cotización</h1> -->
+    </header>
+    <main class="main">
+
+        <div class="invoice">
+            <div class="info">
+                <div class="info__left">
+                    <p class="info__number info__text">
+                        <span class="info__title">Número: </span>
+                        <input type="text" class="number" placeholder="ZDT-COTIZACIÓN N.º">
+                    </p>
+                    <p class="info__name info__text">
+                        <span class="info__title">Sr: </span>
+                        <input type="text" class="name" placeholder="Nombre del cliente">
+                    </p>
+                    <p class="info__subject info__text">
+                        <span class="info__title">Asunto: </span>
+                        <input type="text" class="subject" placeholder="Asunto">
+                    </p>
+                </div>
+                <div class="info__right">
+                    <span class="place">Chiclayo, </span>
+                    <span class="date">Día y fecha actual</span>
+                </div>
+            </div>
+            <div  id="form-invoice">
+                <div class="products__titles">
+                    <p>Cantidad</p>
+                    <p>Nombre</p>
+                    <p>Precio</p>
+                </div>
+                <div class="products">
+                    
+                </div>
+                <div class="invoice__extras">
+                    <div class="total invoice__extra">
+                        <span class="invoice__extras__title">Total: </span>
+                        <input type="text" class="total__value" value="0">
+                        <!-- <span class="total__value">78915</span> -->
+                        <input type="hidden" class="discount-final" value="0">
+                    <input type="hidden" class="increment-final" value="0">
+                    </div>
+                </div>
+                <div class="porcentage__final">
+                    <p class="porcentage__final-title">
+                        Aplicar Porcentaje al valor total
+                    </p>
+                    <div class="radio__final">
+                        <label for="radio-discount-final" class="label">Descontar</label>
+                        <input type="radio" name="porcentage-final" value="discount" id="radio-discount-final"
+                            class="radio__button-final hover-class">
+                        <label for="radio-increment-final" class="label">Incrementar</label>
+                        <input type="radio" name="porcentage-final" value="increment" id="radio-increment-final"
+                            class="radio__button-final hover-class">
+                    </div>
+                    
+                    <input type="text" class="porcentage__final-value" placeholder="10">
+                    <button class="porcentage__final-button hover-class">Aplicar</button>
+                </div>
+                <div class="show-discount-price">
+                    <span>Mostrar descuentos y precios</span>
+                    <input type="checkbox" class="checkbox-extra hover-class">
+                </div>
+                <button class="submit hover-class">Enviar</button>
+            </div>
+        </div>
+        <div class="filter">
+            <div  id="search">
+                <input type="text" class="search__text" placeholder="Buscar producto">
+                <button class="search__button hover-class">Buscar</button>
+            </div>
+            <p class="found__items">
+                <span class="amount__items">0</span><span> Elementos encontrados</span>
+            </p>
+            <div class="filter__products">
+                
+            </div>
+        </div>
+    </main>
+    <template class="template-product">
+        <div class="product">
+            <div class="product__content">
+                <div class="product__main">
+                    <input type="text" class="product__amount input-invoice" value="1">
+                    <input type="text" class="product__name input-invoice" value="nombre">
+                    <input type="text" class="product__price input-invoice">
+                    <input type="hidden" class="discount" value="0">
+                    <input type="hidden" class="increment" value="0">
+                </div>
+                <div class="product__secondary product--none">
+                    <div class="product__details">
+                       
+                    </div>
+                    <div class="add">
+                        <input type="text" class="add__name input-invoice" value="" placeholder="Colocar detalle extra">
+                        <button class="add__button hover-class">Añadir nuevo detalle</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product__options">
+                <div class="product__remove hover-class">
+                    <img src="assets/img/icon-remove.svg" alt="remove product"
+                        class="product__remove__image">
+                </div>
+                <button class="product__add__details hover-class">Detalles Extra</button>
+                <div class="porcentage">
+                    <span class="porcentage__title">Porcentaje</span>
+                    <input type="text" class="porcentage__value" placeholder="10">
+                    <button class="porcentage__button hover-class">Aplicar</button>
+                </div>
+                <div class="radio">
+                    <label for="radio-discount" class="label">Descontar</label>
+                    <input type="radio" name="porcentage" value="discount" id="radio-discount"
+                        class="radio__button hover-class">
+                    <label for="radio-increment" class="label">Incrementar</label>
+                    <input type="radio" name="porcentage" value="increment" id="radio-increment"
+                        class="radio__button hover-class">
+                </div>
+            </div>
+        </div>
+    </template>
+    <template class="template-detail">
+        <div class="product__detail">
+            <p class="product__detail__name">Detalle nombre</p>
+            <button class="remove__detail hover-class">Eliminar</button>
+        </div>
+    </template>
+    <template class="template-filter-product">
+        <div class="filter__product">
+            <div class="filter__product__figure">
+                <img src="https://d2ulnfq8we0v3.cloudfront.net/cdn/800162/media/catalog/product/cache/1/small_image/295x/040ec09b1e35df139433887a97daa66f/9/5/95cff28ce26b215ee12da4afe21273a7_1.jpg"
+                    alt="product image" class="filter__product__image">
+            </div>
+            <div class="filter__product__details">
+                <p class="product__title">Nombre: </p>
+                <p class="filter__product__name">Cámara web Logitech C920S, FHD, microfono stereo, USB.</p>
+                <p class="product__title">Precio: </p>
+                <p class="filter__product__price">335.00</p>
+                <p class="filter__product__link">
+                    <span class="product__title">Más detalles del Producto:</span>
+                    <a href="https://www.loginstore.com/camara-web-logitech-c920s-fhd-microfono-stereo-usb"
+                        class="product__link" target="_blank">Detalles</a>
+                </p>
+                <button class="add_data hover-class">Añadir Datos</button>
+            </div>
+        </div>
+    </template>
+<script src="js/main.js" type="module"></script>
+</body>
+
+</html>
