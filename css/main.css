@@ -401,7 +401,7 @@ body {
 .filter {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     width: 100%;
 
 }
@@ -426,7 +426,20 @@ body {
     border-radius: 0.5rem;
 }
 
+.order{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#checkbox-order{
+    appearance: auto;
+}
+
 .filter__products{
+    padding: 1rem;
+    /* display: flex;
+    flex-direction: column; */
     overflow-y: auto;
     height: 70vh;
 }
@@ -444,15 +457,21 @@ body {
 }
 
 .filter__product__figure {
+    flex-shrink: 0;
     width: 10rem;
+    height: 100%;
+}
+
+.filter__product__image{
+    object-fit: cover;
 }
 
 .filter__product__details {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .filter__product__name{

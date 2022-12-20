@@ -58,6 +58,9 @@ const searchStrings = (string = "") => {
             let isInclude;
             for (let index = 0; index < groupString.length; index++) {
                 isInclude = key.toLowerCase().includes(groupString[index]);
+
+                if (!isInclude) return;
+
             }
             if (isInclude) {
                 let newObj = { ...value };
@@ -69,6 +72,8 @@ const searchStrings = (string = "") => {
         })
 
     });
+
+    d.querySelector(".amount__items").textContent = filterDataElements.length
 
 }
 
@@ -103,17 +108,6 @@ d.addEventListener("DOMContentLoaded", async e => {
 
     console.log(dataElements);
 
-    // searchStrings("disco duro dell");
-    // console.log("filtrados");
-    // filterDataElements.sort(function(a, b){
-    //     let x = a.nombre.toLowerCase();
-    //     let y = b.nombre.toLowerCase();
-    //     if (x < y) {return -1;}
-    //     if (x > y) {return 1;}
-    //     return 0;
-    //   })
-    // console.log(filterDataElements);
-
 });
 
 d.addEventListener("click", e => {
@@ -121,6 +115,7 @@ d.addEventListener("click", e => {
 
     //Producto
     let $product = e.target.closest(".product");
+    console.log($product);
 
     // Eliminar producto
     if (e.target.matches(".product__remove") ||
@@ -218,8 +213,25 @@ d.addEventListener("click", e => {
         // sumTotal();
     }
 
+    // Search
     if (e.target.matches(".search__button")) {
+        let stringToSearch = d.querySelector(".search__text").value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        searchStrings(stringToSearch);
+        // console.log(stringToSearch);
+        setProducts(filterDataElements);
+        d.querySelector("#checkbox-order").checked = false;
+    }
 
+    // Order by price
+
+    if (e.target.matches("#checkbox-order")) {
+
+        let order = e.target.checked.value;
+        console.log(e.target.checked);
+        if (e.target.checked) {
+            orderByPrice();
+            setProducts(filterDataElements)
+        }
     }
 
 });
@@ -264,11 +276,11 @@ d.addEventListener("keyup", e => {
     if (e.key === "Enter") {
 
         if (e.target.matches(".search__text")) {
-            let stringToSearch = d.querySelector(".search__text").value.trim();
+            let stringToSearch = d.querySelector(".search__text").value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             searchStrings(stringToSearch);
             // console.log(stringToSearch);
             setProducts(filterDataElements);
-
+            d.querySelector("#checkbox-order").checked = false;
         }
 
     }
