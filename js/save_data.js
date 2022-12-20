@@ -35,6 +35,7 @@ export const saveData = () => {
         let productAmount = element.querySelector(".product__amount").value;
         let productName = element.querySelector(".product__name").value;
         let productPrice = element.querySelector(".product__price").value;
+        let productCode = element.querySelector(".product__code").value;
         let productDiscount = element.querySelector(".discount").value;
         let productIncrement = element.querySelector(".increment").value;
         let productDetails = []
@@ -53,6 +54,7 @@ export const saveData = () => {
             productAmount,
             productName,
             productPrice,
+            productCode,
             productDiscount,
             productIncrement,
             productDetails

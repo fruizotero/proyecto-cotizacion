@@ -16,9 +16,9 @@
 
     <header class="header">
         <!-- <h1>Cotización</h1> -->
+        <button class="button-mobile">Mostrar buscador</button>
     </header>
     <main class="main">
-
         <div class="invoice">
             <div class="info">
                 <div class="info__left">
@@ -40,14 +40,15 @@
                     <span class="date">Día y fecha actual</span>
                 </div>
             </div>
-            <div  id="form-invoice">
+            <div id="form-invoice">
                 <div class="products__titles">
                     <p>Cantidad</p>
                     <p>Nombre</p>
                     <p>Precio</p>
+                    <p>Código</p>
                 </div>
                 <div class="products">
-                    
+
                 </div>
                 <div class="invoice__extras">
                     <div class="total invoice__extra">
@@ -55,7 +56,7 @@
                         <input type="text" class="total__value" value="0">
                         <!-- <span class="total__value">78915</span> -->
                         <input type="hidden" class="discount-final" value="0">
-                    <input type="hidden" class="increment-final" value="0">
+                        <input type="hidden" class="increment-final" value="0">
                     </div>
                 </div>
                 <div class="porcentage__final">
@@ -70,7 +71,7 @@
                         <input type="radio" name="porcentage-final" value="increment" id="radio-increment-final"
                             class="radio__button-final hover-class">
                     </div>
-                    
+
                     <input type="text" class="porcentage__final-value" placeholder="10">
                     <button class="porcentage__final-button hover-class">Aplicar</button>
                 </div>
@@ -82,7 +83,10 @@
             </div>
         </div>
         <div class="filter">
-            <div  id="search">
+            <div class="filter__close">
+                <img src="assets/img/icon-remove.svg" alt="Icon close" class="filter__close__image">
+            </div>
+            <div id="search">
                 <input type="text" class="search__text" placeholder="Buscar producto">
                 <button class="search__button hover-class">Buscar</button>
             </div>
@@ -95,7 +99,7 @@
 
             </div>
             <div class="filter__products">
-                
+
             </div>
         </div>
     </main>
@@ -106,12 +110,13 @@
                     <input type="text" class="product__amount input-invoice" value="1">
                     <input type="text" class="product__name input-invoice" value="nombre">
                     <input type="text" class="product__price input-invoice">
+                    <input type="text" class="product__code input-invoice" placeholder="Código">
                     <input type="hidden" class="discount" value="0">
                     <input type="hidden" class="increment" value="0">
                 </div>
                 <div class="product__secondary product--none">
                     <div class="product__details">
-                       
+
                     </div>
                     <div class="add">
                         <input type="text" class="add__name input-invoice" value="" placeholder="Colocar detalle extra">
@@ -121,8 +126,7 @@
             </div>
             <div class="product__options">
                 <div class="product__remove hover-class">
-                    <img src="assets/img/icon-remove.svg" alt="remove product"
-                        class="product__remove__image">
+                    <img src="assets/img/icon-remove.svg" alt="remove product" class="product__remove__image">
                 </div>
                 <button class="product__add__details hover-class">Detalles Extra</button>
                 <div class="porcentage">
@@ -167,7 +171,7 @@
             </div>
         </div>
     </template>
-<script src="js/main.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
 </body>
 
 </html>

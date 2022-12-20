@@ -246,6 +246,20 @@ d.addEventListener("click", e => {
 
     }
 
+    //Mostrar filter
+
+    if(e.target.matches(".button-mobile")){
+        
+        d.querySelector(".filter").classList.add("filter-show");
+        
+    }
+    
+    //Close filter
+    
+    if(e.target.matches(".filter__close") || e.target.matches(".filter__close *")){
+        d.querySelector(".filter").classList.remove("filter-show");
+    }
+
 });
 
 d.addEventListener("keyup", e => {
