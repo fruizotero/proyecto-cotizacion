@@ -1,6 +1,8 @@
 import { getDetails, setDetailProduct } from '../js/set_details.js';
 import { getData } from "../js/get_data.js";
 import { setProducts } from "../js/set_filter_product.js";
+import { saveData } from "../js/save_data.js";
+
 const d = document;
 const date = new Date();
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -133,8 +135,8 @@ d.addEventListener("click", e => {
     // Descontar o incrementar porcentaje
 
     if (e.target.matches(".porcentage__button")) {
-        let porcentageRadio = document.querySelector('input[name="porcentage"]:checked').value;
-        let porcentage = d.querySelector(".porcentage__value").value;
+        let porcentageRadio = $product.querySelector('input[name="porcentage"]:checked').value;
+        let porcentage = $product.querySelector(".porcentage__value").value;
         let porcentageInteger = parseInt(porcentage);
         let price = $product.querySelector(".product__price").value.trim();
         let priceInteger = parseInt(price);
@@ -142,7 +144,7 @@ d.addEventListener("click", e => {
 
         if (validateNumber(porcentage) === "")
             return;
-
+        console.log("holaaa");
         if (porcentageRadio === "discount") {
             operation = priceInteger - ((priceInteger * porcentageInteger) / 100);
             $product.querySelector(".discount").value = porcentageInteger;
@@ -232,6 +234,16 @@ d.addEventListener("click", e => {
             orderByPrice();
             setProducts(filterDataElements)
         }
+    }
+
+    //Submit
+
+    if (e.target.matches(".submit")) {
+
+        saveData();
+
+        window.open("pages/page_pdf.html")
+
     }
 
 });
