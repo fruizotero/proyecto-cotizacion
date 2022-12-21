@@ -10,6 +10,10 @@ export const saveData = () => {
     let subject = d.querySelector(".subject").value;
     let products = d.querySelectorAll(".product");
     let total = d.querySelector(".total__value").value;
+    let totalIgv=d.querySelector(".igv__total").value;
+    let porcentageIgv=d.querySelector(".igv__porcentage").value;
+    let valueIgv=d.querySelector(".igv__value").value;
+    let totalDiscountIncrement=d.querySelector(".total-discount-increment").value;
     let totalDiscount = d.querySelector(".discount-final").value;
     let totalIncrement = d.querySelector(".increment-final").value;
     let showDiscountAndPrices = d.querySelector(".checkbox-extra").checked;
@@ -21,8 +25,14 @@ export const saveData = () => {
         name,
         subject,
         products: [],
-        totalvalues: {
-            total,
+        total,
+        valuesigv: {
+            totalIgv,
+            porcentageIgv,
+            valueIgv
+        },
+        valuesdiscountincrement:{
+            totalDiscountIncrement,
             totalDiscount,
             totalIncrement
         },
@@ -34,7 +44,8 @@ export const saveData = () => {
         // let product = {};
         let productAmount = element.querySelector(".product__amount").value;
         let productName = element.querySelector(".product__name").value;
-        let productPrice = element.querySelector(".product__price").value;
+        let productPriceFinal = element.querySelector(".product__price").value;
+        let productPriceByUnit=element.querySelector(".product__price").dataset.price;
         let productCode = element.querySelector(".product__code").value;
         let productDiscount = element.querySelector(".discount").value;
         let productIncrement = element.querySelector(".increment").value;
@@ -53,7 +64,8 @@ export const saveData = () => {
         let product = {
             productAmount,
             productName,
-            productPrice,
+            productPriceFinal,
+            productPriceByUnit,
             productCode,
             productDiscount,
             productIncrement,

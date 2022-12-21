@@ -617,4 +617,12 @@ body {
     .filter__product__figure {
         overflow: hidden;
     }
+
+    .invoice__extras{
+        flex-wrap: wrap;
+    }
+
+    .igv{
+        flex-wrap: wrap;
+    }
 }

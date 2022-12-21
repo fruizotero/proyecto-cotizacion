@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,193 @@
     <link rel="stylesheet" href="../css/pdf.css">
     <title>PDF</title>
 </head>
-<body>
-    <h1>PDF</h1>
+
+<body class="body">
+    <!-- <h1>PDF</h1> -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo__figure">
+                <img src="../assets/img/logo.jpeg" alt="Logo of the page" class="logo__figure__image">
+            </div>
+        </div>
+        <div class="header__text">
+            <p>
+                CAMARAS DE VIGILANCIA, RELOJ DE CONTROL DE ASISTENCIA
+            </p>
+            <p>
+                VENTA DE COMPUTADORAS, LAPTOPS, ALARMA CONTRA ROBOS
+            </p>
+            <p>
+                FACTURACIÓN ELECTRÓNICA - SISTEMAS A MEDIDA – PAGINAS WEB
+            </p>
+        </div>
+    </header>
+    <main class="main">
+        <p class="date-issue">
+            <span class="place"></span>
+            <span class="date-issue-text"></span>
+        </p>
+        <div class="data-issuer-client">
+            <div class="data">
+                <p class="data__text">
+                    <span class="data__title">Emisor: </span>
+                    <span class="data__issuer__name">Zona de Tecnología</span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">RUC: </span>
+                    <span class="data__issuer__ruc">10432267275</span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">Email: </span>
+                    <span class="data__issuer__email">zonadetecnologia@gmail.com</span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">Teléfono: </span>
+                    <span class="data__issuer__phone"> 974-257439</span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">Celular: </span>
+                    <span class="data__issuer__phone"> 947032515</span>
+                </p>
+            </div>
+            <div class="data">
+                <p class="data__text">
+                    <span class="data__title">Cliente: </span>
+                    <span class="data__client__name">Frank Ruiz Otero</span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">DNI: </span>
+                    <span class="data__client__dni"></span>
+                </p>
+                <p class="data__text">
+                    <span class="data__title">Email: </span>
+                    <span class="data__client__email"></span>
+                </p>
+
+            </div>
+        </div>
+        <div class="data-invoice">
+            <div class="data-invoice-top">
+                <div class="data__text__invoice">
+                    <p class="data__title">Fecha de emisión: </p>
+                    <p class="date"></p>
+                </div>
+                <div class="data__text__invoice">
+                    <p class="data__title">ZDT-COTIZACIÓN N.º: </p>
+                    <p class="data__number">99999</p>
+                </div>
+                <div class="data__text__invoice">
+                    <p class="data__title">Validez de oferta: </p>
+                    <p class="data__period">5 Días</p>
+                </div>
+                <div class="data__text__invoice">
+                    <p class="data__title">Moneda: </p>
+                    <p class="data__coin">Soles</p>
+                </div>
+            </div>
+            <div class="data-invoice-bottom">
+                <p class="data__text__invoice">
+                    <span class="data__title">Asunto: </span>
+                    <span class="data__subject"></span>
+                </p>
+            </div>
+
+        </div>
+
+        <table class="products">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th class="td-unity">Precio Unidad</th>
+                    <th class="td-discount">Descuento</th>
+                    <th class="td-increment">Incremento</th>
+                    <th class="td-final-price">Precio final</th>
+                </tr>
+            </thead>
+            <tbody class="products__body"></tbody>
+        </table>
+
+        <div class="data-total ">
+            <p class="data-total__title ">
+                Subtotal:
+            </p>
+            <p class="total  data-total__value"></p>
+            <p class="data-total__title">
+                IGV:
+            </p>
+            <p class="igv__porcentage__value  data-total__value">18%</p>
+            <p class="data-total__title ">
+                Total IGV: 
+            </p>
+            <p class="igv__total__value data-total__value"></p>
+            <p class="data-total__title total">
+                Subtotal con IGV:
+            </p>
+            <p class="total__value_with_igv data-total__value"></p>
+            <p class="data-total__title">
+                Descuento: 
+            </p>
+            <p class="final__discount data-total__value"></p>
+            <p class="data-total__title">
+                Incremento: 
+            </p>
+            <p class="final__increment data-total__value">
+
+            </p>
+            <p class="data-total__title">
+                TOTAL: 
+            </p>
+            <p class="total__final__value data-total__value">
+
+            </p>
+
+            
+
+        </div>
+
+        <div class="extra">
+            <div class="extra__item">
+                <p class="extra__title">Adicional: </p>
+                <p class="extra__text">Garantía de 12 meses</p>
+            </div>
+            <div class="extra__item">
+                <p class="extra__title">BCP Soles: </p>
+                <p class="extra__text">30590659399035</p>
+            </div>
+            <div class="extra__item">
+                <p class="extra__title">Cuenta: </p>
+                <p class="extra__text">00230519065939903518</p>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="footer"></footer>
+
+    <template class="template-product-name">
+        <p class="name"></p>
+        <ul class="product__details"></ul>
+    </template>
+
+    <template class="template-product">
+        <div class="product">
+            <p class="product__code"></p>
+            <p class="product__amount"></p>
+            <div class="product__name">
+                <p class="name"></p>
+                <ul class="product__details"></ul>
+            </div>
+            <p class="product__price__unity"></p>
+            <p class="product__discount"></p>
+            <p class="product__increment"></p>
+            <p class="product__final__price"></p>
+        </div>
+    </template>
+
 
     <script src="../js/pdf.js" type="module"></script>
 </body>
+
 </html>

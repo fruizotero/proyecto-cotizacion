@@ -44,7 +44,7 @@ const calcIGV = () => {
     let $totalValue = d.querySelector(".total__value").value;
 
     let igv = (parseFloat($totalValue) * parseFloat($porcentageIGV)) / 100;
-    $igvValue.value = igv;
+    $igvValue.value = igv.toFixed(3);
     $igvTotal.value = (parseFloat($totalValue) + igv).toFixed(3);
     
     d.querySelector(".total-discount-increment").value = (parseFloat($totalValue) + igv).toFixed(3);;
