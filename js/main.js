@@ -49,21 +49,25 @@ const validateNumber = (value) => {
 
 const searchStrings = (string = "") => {
 
+
     let groupString = string.split(" ");
     filterDataElements = [];
 
-    dataElements.forEach(el => {
+    if (string === "") return;
 
-        Object.entries(el).forEach(entry => {
+    for (let index = 0; index < dataElements.length; index++) {
 
+        Object.entries(dataElements[index]).forEach(entry => {
             let [key, value] = entry;
+
             let isInclude;
-            for (let index = 0; index < groupString.length; index++) {
+            for (let index = 0; index < groupString.length; index++) {    
+
                 isInclude = key.toLowerCase().includes(groupString[index]);
-
+ 
                 if (!isInclude) return;
-
             }
+            
             if (isInclude) {
                 let newObj = { ...value };
                 newObj.precio = parseFloat(newObj.precio.replace("S/.", "").trim());
@@ -71,9 +75,8 @@ const searchStrings = (string = "") => {
                 filterDataElements.push(newObj);
             }
 
-        })
-
-    });
+        });
+    }
 
     d.querySelector(".amount__items").textContent = filterDataElements.length
 
@@ -217,11 +220,11 @@ d.addEventListener("click", e => {
 
     // Search
     if (e.target.matches(".search__button")) {
-        let stringToSearch = d.querySelector(".search__text").value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        let stringToSearch = d.querySelector(".search__text").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         searchStrings(stringToSearch);
-        // console.log(stringToSearch);
         setProducts(filterDataElements);
         d.querySelector("#checkbox-order").checked = false;
+        // d.querySelector(".example").textContent=stringToSearch;
     }
 
     // Order by price
@@ -248,15 +251,15 @@ d.addEventListener("click", e => {
 
     //Mostrar filter
 
-    if(e.target.matches(".button-mobile")){
-        
+    if (e.target.matches(".button-mobile")) {
+
         d.querySelector(".filter").classList.add("filter-show");
-        
+
     }
-    
+
     //Close filter
-    
-    if(e.target.matches(".filter__close") || e.target.matches(".filter__close *")){
+
+    if (e.target.matches(".filter__close") || e.target.matches(".filter__close__image")) {
         d.querySelector(".filter").classList.remove("filter-show");
     }
 
@@ -302,7 +305,7 @@ d.addEventListener("keyup", e => {
     if (e.key === "Enter") {
 
         if (e.target.matches(".search__text")) {
-            let stringToSearch = d.querySelector(".search__text").value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            let stringToSearch = d.querySelector(".search__text").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             searchStrings(stringToSearch);
             // console.log(stringToSearch);
             setProducts(filterDataElements);

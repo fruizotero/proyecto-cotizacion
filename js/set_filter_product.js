@@ -7,6 +7,7 @@ export const setProducts = (data = []) => {
     data.forEach(el => {
 
         $template.querySelector(".filter__product__image").setAttribute("src", el.imagen);
+        // $template.querySelector(".filter__product__image").setAttribute("src", "#");
         $template.querySelector(".filter__product__name").textContent = el.nombre;
         $template.querySelector(".filter__product__price").textContent = 
         `S/. ${el.precio}`;
