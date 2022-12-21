@@ -351,6 +351,25 @@ body {
     font-size: 1rem;
 }
 
+.igv{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.igv__item{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.igv__porcentage,
+.igv__value,
+.igv__total
+{
+    width: 5rem;
+}
+
+
+
 .radio__button-final {
     appearance: auto;
 }

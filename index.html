@@ -55,13 +55,35 @@
                         <span class="invoice__extras__title">Total: </span>
                         <input type="text" class="total__value" value="0">
                         <!-- <span class="total__value">78915</span> -->
+                    </div>
+                    <div class=" igv invoice__extra">
+                        <!-- <span class="invoice__extras__title">Total con IGV:</span> -->
+                        <div class="igv__item">
+                            <span class="invoice__extras__title">Total con IGV:</span>
+                            <input type="text" class="igv__total">
+                        </div>
+                        
+                        <div class="igv__item">
+                            <span class="invoice__extras__title">IGV %:</span>
+                            <input type="text" class="igv__porcentage" value="18" placeholder="">
+                        </div >
+                        <div class="igv__item">
+                            <span class="invoice__extras__title">IGV valor:</span>
+                            <input type="text" class="igv__value">
+                        </div>
+                       
+
+                    </div>
+                    <div class="invoice__extra">
+                        <span class="invoice__extras__title">Total con descuento o incremento:</span>
+                        <input type="text" class="total-discount-increment">                
                         <input type="hidden" class="discount-final" value="0">
                         <input type="hidden" class="increment-final" value="0">
                     </div>
                 </div>
                 <div class="porcentage__final">
                     <p class="porcentage__final-title">
-                        Aplicar Porcentaje al valor total
+                        Aplicar Porcentaje al valor total (Con IGV)
                     </p>
                     <div class="radio__final">
                         <label for="radio-discount-final" class="label">Descontar</label>
@@ -92,8 +114,6 @@
             </div>
             <p class="found__items">
                 <span class="amount__items">0</span><span> Elementos encontrados</span>
-                <p class="example"></p>
-                <!-- //TODO::ejemplo -->
             </p>
             <div class="order">
                 <label for="checkbox-order">Ordenar por precio</label>

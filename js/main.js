@@ -33,6 +33,22 @@ const sumTotal = () => {
     });
 
     d.querySelector(".total__value").value = total;
+    calcIGV();
+}
+
+const calcIGV = () => {
+
+    let $porcentageIGV = d.querySelector(".igv__porcentage").value;
+    let $igvValue = d.querySelector(".igv__value");
+    let $igvTotal = d.querySelector(".igv__total");
+    let $totalValue = d.querySelector(".total__value").value;
+
+    let igv = (parseFloat($totalValue) * parseFloat($porcentageIGV)) / 100;
+    $igvValue.value = igv;
+    $igvTotal.value = (parseFloat($totalValue) + igv).toFixed(3);
+    
+    d.querySelector(".total-discount-increment").value = (parseFloat($totalValue) + igv).toFixed(3);;
+
 }
 
 const validateNumber = (value) => {
@@ -61,13 +77,13 @@ const searchStrings = (string = "") => {
             let [key, value] = entry;
 
             let isInclude;
-            for (let index = 0; index < groupString.length; index++) {    
+            for (let index = 0; index < groupString.length; index++) {
 
                 isInclude = key.toLowerCase().includes(groupString[index]);
- 
+
                 if (!isInclude) return;
             }
-            
+
             if (isInclude) {
                 let newObj = { ...value };
                 newObj.precio = parseFloat(newObj.precio.replace("S/.", "").trim());
@@ -195,8 +211,8 @@ d.addEventListener("click", e => {
         let porcentageRadio = d.querySelector('input[name="porcentage-final"]:checked').value;
         let porcentage = d.querySelector(".porcentage__final-value").value;
         let porcentageInteger = parseInt(porcentage);
-        let total = d.querySelector(".total__value").value.trim();
-        let totalInteger = parseInt(total);
+        let total = d.querySelector(".igv__total").value.trim();
+        let totalInteger = parseFloat(total);
         let operation;
 
         if (validateNumber(porcentage) === "")
@@ -212,9 +228,10 @@ d.addEventListener("click", e => {
             d.querySelector(".increment-final").value = porcentageInteger;
         }
 
-        d.querySelector(".total__value").value = operation;
+        d.querySelector(".total-discount-increment").value = operation;
 
         operation = 0;
+        // calcIGV();
         // sumTotal();
     }
 
