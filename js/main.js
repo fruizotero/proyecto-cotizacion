@@ -1,4 +1,4 @@
-import { getDetails, setDetailProduct } from '../js/set_details.js';
+import { getDetails, setDetailProduct, setDetails } from '../js/set_details.js';
 import { getData } from "../js/get_data.js";
 import { setProducts } from "../js/set_filter_product.js";
 import { saveData } from "../js/save_data.js";
@@ -17,8 +17,6 @@ const paths = [
 
 let dataElements;
 let filterDataElements = [];
-// let filterDateElementsByPrice = [];
-// let filterDataElementsByName = [];
 
 const sumTotal = () => {
     let prices = d.querySelectorAll(".product__price");
@@ -46,7 +44,7 @@ const calcIGV = () => {
     let igv = (parseFloat($totalValue) * parseFloat($porcentageIGV)) / 100;
     $igvValue.value = igv.toFixed(3);
     $igvTotal.value = (parseFloat($totalValue) + igv).toFixed(3);
-    
+
     d.querySelector(".total-discount-increment").value = (parseFloat($totalValue) + igv).toFixed(3);;
 
 }
@@ -113,6 +111,21 @@ const orderByName = () => {
     });
 }
 
+const actionMessage = (message = "") => {
+    d.querySelector(".message").style.display = "block";
+    d.querySelector(".message").textContent = message;
+    setTimeout(() => {
+
+        d.querySelector(".message").style.display = "none"
+        // console.log("hola");
+    }, 2000);
+}
+
+const moveScrollTop = () => {
+    d.querySelector(".filter__products").scrollTop = 0;
+}
+
+
 d.addEventListener("DOMContentLoaded", async e => {
 
     getDetails(
@@ -133,10 +146,22 @@ d.addEventListener("DOMContentLoaded", async e => {
 
 d.addEventListener("click", e => {
 
+    // Producto empty
+
+    if (e.target.matches(".product__empty")) {
+        setDetails(["", "0"]);
+        actionMessage("Se ha añadido un nuevo producto")
+    }
+
 
     //Producto
     let $product = e.target.closest(".product");
     console.log($product);
+
+    if (e.target.matches(".add_data")) {
+        actionMessage("Detalles Añadidos");
+        d.querySelector(".filter").classList.remove("filter-show");
+    }
 
     // Eliminar producto
     if (e.target.matches(".product__remove") ||
@@ -148,6 +173,7 @@ d.addEventListener("click", e => {
 
         d.querySelector(".products").removeChild(e.target.closest(".product"));
         sumTotal();
+        actionMessage("Se ha eliminado un producto")
 
     }
 
@@ -176,6 +202,7 @@ d.addEventListener("click", e => {
 
         operation = 0;
         sumTotal();
+        actionMessage("Se ha aplicado un porcentaje al producto");
     }
 
     //
@@ -231,6 +258,7 @@ d.addEventListener("click", e => {
         d.querySelector(".total-discount-increment").value = operation;
 
         operation = 0;
+        actionMessage("Se ha aplicado un porcentaje al Total")
         // calcIGV();
         // sumTotal();
     }
@@ -241,6 +269,7 @@ d.addEventListener("click", e => {
         searchStrings(stringToSearch);
         setProducts(filterDataElements);
         d.querySelector("#checkbox-order").checked = false;
+        moveScrollTop();
         // d.querySelector(".example").textContent=stringToSearch;
     }
 
@@ -327,8 +356,15 @@ d.addEventListener("keyup", e => {
             // console.log(stringToSearch);
             setProducts(filterDataElements);
             d.querySelector("#checkbox-order").checked = false;
+            moveScrollTop();
         }
 
+    }
+
+    // IGV porcentage
+
+    if (e.target.matches(".igv__porcentage")) {
+        calcIGV();
     }
 
 
