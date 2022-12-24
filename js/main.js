@@ -7,13 +7,16 @@ const d = document;
 const date = new Date();
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 const paths = [
-    "assets/data/loginstore/arma_tu_pc.json",
-    "assets/data/loginstore/celulares.json",
-    "assets/data/loginstore/computacion.json",
-    "assets/data/loginstore/gaming.json",
-    "assets/data/loginstore/monitores.json",
-    "assets/data/loginstore/tv_audio.json"
+    "assets/data/deltron/deltron.json"
 ]
+// const paths = [
+//     "assets/data/loginstore/arma_tu_pc.json",
+//     "assets/data/loginstore/celulares.json",
+//     "assets/data/loginstore/computacion.json",
+//     "assets/data/loginstore/gaming.json",
+//     "assets/data/loginstore/monitores.json",
+//     "assets/data/loginstore/tv_audio.json"
+// ]
 
 let dataElements;
 let filterDataElements = [];
@@ -84,7 +87,7 @@ const searchStrings = (string = "") => {
 
             if (isInclude) {
                 let newObj = { ...value };
-                newObj.precio = parseFloat(newObj.precio.replace("S/.", "").trim());
+                newObj.precio = parseFloat((newObj.precio.replace("S/.", "").trim()).replace(",", ""));
                 // value.precio = parseFloat(value.precio.replace("S/.", "").trim());
                 filterDataElements.push(newObj);
             }
@@ -140,7 +143,7 @@ d.addEventListener("DOMContentLoaded", async e => {
 
     dataElements = await getData("", paths);
 
-    console.log(dataElements);
+    // console.log(dataElements);
 
 });
 
