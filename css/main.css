@@ -138,12 +138,30 @@ body {
 .products__titles {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.85rem;
     font-weight: bold;
     /* text-align: center; */
 }
 
+.products__titles__amount{
+    width: 2.5rem;
+}
+
+.products__titles__name{
+    flex-grow: 1;
+}
+
+.products__titles__price{
+    width: 5rem;
+}
+
+.products__titles__code{
+    width: 5rem;
+}
+
 .products__titles p {
-    border-bottom: 1px solid #000;
+    /* border-bottom: 1px solid #000; */
 }
 
 .products {

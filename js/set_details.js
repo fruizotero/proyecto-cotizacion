@@ -39,6 +39,7 @@ export const setDetails = (values) => {
     $template.querySelector(".product__name").value = values[0];
     $template.querySelector(".product__price").value = values[1].toLowerCase().replace("s/.", "").trim();
     $template.querySelector(".product__price").dataset.price = values[1].toLowerCase().replace("s/.", "").trim();
+    $template.querySelector(".product__code").value= values[2];
 
 
     let $clone = d.importNode($template, true);

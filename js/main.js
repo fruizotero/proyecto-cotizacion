@@ -134,7 +134,8 @@ d.addEventListener("DOMContentLoaded", async e => {
     getDetails(
         ".add_data", ".filter__product__details",
         [".filter__product__name",
-            ".filter__product__price"],
+            ".filter__product__price", 
+            ".filter__product__minicode"],
         sumTotal
     )
 

@@ -23,8 +23,10 @@ export const setProducts = (data = []) => {
         $template.querySelector(".filter__product__name").textContent = el.nombre;
         $template.querySelector(".filter__product__price").textContent =
             `S/. ${el.precio}`;
+        // console.log(el.miniCode.trim());
+        $template.querySelector(".filter__product__minicode").textContent = el.miniCode.trim();
+
         $template.querySelector(".product__link").setAttribute("href", el.link);
-        console.log(el.miniCode.trim());
         let $clone = d.importNode($template, true);
         $fragment.appendChild($clone);
 

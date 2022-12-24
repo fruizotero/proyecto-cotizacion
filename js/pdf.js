@@ -103,13 +103,13 @@ d.addEventListener("DOMContentLoaded", e => {
 
     }
 
-    d.querySelector(".total").textContent = `S/ ${data["total"]}`;
+    d.querySelector(".total").textContent = `S/ ${parseFloat(data["total"]).toFixed(3)}`;
 
     d.querySelector(".igv__porcentage__value").textContent = `${data["valuesigv"]["porcentageIgv"]}%`;
     d.querySelector(".igv__total__value").textContent = `S/ ${parseFloat(data["valuesigv"]["valueIgv"]).toFixed(3)}`
     d.querySelector(".final__discount").textContent = `${data["valuesdiscountincrement"]["totalDiscount"]}%`
     d.querySelector(".final__increment").textContent = `${data["valuesdiscountincrement"]["totalIncrement"]}%`;
-    d.querySelector(".total__value_with_igv").textContent = `S/ ${data["valuesigv"]["totalIgv"]}`;
+    d.querySelector(".total__value_with_igv").textContent = `S/ ${parseFloat(data["valuesigv"]["totalIgv"]).toFixed(3)}`;
     d.querySelector(".total__final__value").textContent = `S/ ${parseFloat(data["valuesdiscountincrement"]["totalDiscountIncrement"]).toFixed(3)}`;
 
 });
