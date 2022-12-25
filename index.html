@@ -44,12 +44,12 @@
                 Añadir Producto sin Detalles 
             </button>
             <div id="form-invoice">
-                <div class="products__titles">
+                <!-- <div class="products__titles">
                     <p class="products__titles__amount">Cant</p>
                     <p class="products__titles__name">Nombre</p>
                     <p class="products__titles__price"> Precio</p>
                     <p class="products__titles__code">Código</p>
-                </div>
+                </div> -->
                 <div class="products">
 
                 </div>
@@ -132,10 +132,29 @@
         <div class="product">
             <div class="product__content">
                 <div class="product__main">
-                    <input type="text" class="product__amount input-invoice" value="1">
-                    <input type="text" class="product__name input-invoice" value="nombre">
-                    <input type="text" class="product__price input-invoice">
-                    <input type="text" class="product__code input-invoice" placeholder="Código">
+                    <div class="container__element__product">
+                        <div class="container__product__amount">
+                            <input type="text" class="product__amount input-invoice" value="1">
+                        </div>
+                    </div>
+                    <div class="container__element__product width-all">
+                        <div class="container__product__name">
+                            <input type="text" class="product__name input-invoice" value="nombre">
+                        </div>
+                        
+                    </div>
+                    <div class="container__element__product">
+                        <div class="container__product__price">
+                            <input type="text" class="product__price input-invoice">
+                        </div>
+                        
+                    </div>
+                    <div class="container__element__product">
+                        <div class="container__product__code">
+                            <input type="text" class="product__code input-invoice" placeholder="Código">
+                        </div>
+                        
+                    </div>
                     <input type="hidden" class="discount" value="0">
                     <input type="hidden" class="increment" value="0">
                 </div>
