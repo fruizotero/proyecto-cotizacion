@@ -134,7 +134,7 @@ d.addEventListener("DOMContentLoaded", async e => {
     getDetails(
         ".add_data", ".filter__product__details",
         [".filter__product__name",
-            ".filter__product__price", 
+            ".filter__product__price",
             ".filter__product__minicode"],
         sumTotal
     )
@@ -181,6 +181,23 @@ d.addEventListener("click", e => {
 
     }
 
+    // Mostrar detalles extra
+
+    if (e.target.matches(".filter__product__container") || e.target.matches(".filter__product__container *")) {
+        let $parent = e.target.closest(".filter__product");
+        $parent.querySelector(".filter__product__details__extra").classList.add("show-details-extra");
+    }
+
+    // Cerrar dettale extra
+
+    if (e.target.matches(".filter__product__extra__container") || 
+    e.target.matches(".filter__product__extra__container *")) {
+
+        let $parent = e.target.closest(".filter__product");
+        $parent.querySelector(".filter__product__details__extra").classList.remove("show-details-extra");
+
+    }
+
     // Descontar o incrementar porcentaje
 
     if (e.target.matches(".porcentage__button")) {
@@ -202,7 +219,7 @@ d.addEventListener("click", e => {
             $product.querySelector(".increment").value = porcentageInteger;
         }
 
-        $product.querySelector(".product__price").value = operation;
+        $product.querySelector(".product__price").value = operation.toFixed(3);
 
         operation = 0;
         sumTotal();
@@ -259,7 +276,7 @@ d.addEventListener("click", e => {
             d.querySelector(".increment-final").value = porcentageInteger;
         }
 
-        d.querySelector(".total-discount-increment").value = operation;
+        d.querySelector(".total-discount-increment").value = operation.toFixed(3);
 
         operation = 0;
         actionMessage("Se ha aplicado un porcentaje al Total")

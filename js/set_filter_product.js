@@ -27,6 +27,16 @@ export const setProducts = (data = []) => {
         $template.querySelector(".filter__product__minicode").textContent = el.miniCode.trim();
 
         $template.querySelector(".product__link").setAttribute("href", el.link);
+
+        $template.querySelector(".filter__product__link__stock").setAttribute("href", el.linkStock);
+
+        $template.querySelector(".filter__product__marca").textContent = el.marca;
+
+        $template.querySelector(".filter__product__description").textContent=el.textDescription;
+
+        //precioDolares
+        $template.querySelector(".filter__product__price__dolar").textContent=el.precioDolares;
+
         let $clone = d.importNode($template, true);
         $fragment.appendChild($clone);
 
