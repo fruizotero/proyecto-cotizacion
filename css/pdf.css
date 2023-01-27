@@ -139,6 +139,10 @@ body {
     font-weight: bold;
 }
 
+.data__title--width{
+    width: 9rem;
+}
+
 .data-invoice {
     display: flex;
     flex-direction: column;
