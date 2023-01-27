@@ -17,11 +17,15 @@ d.addEventListener("DOMContentLoaded", e => {
     d.querySelector(".place").textContent = data["place"];
     d.querySelector(".date-issue-text").textContent = data["date"];
     d.querySelector(".data__client__name").textContent = data["name"];
+    d.querySelector(".data__client__dni").textContent = data["dni"];
+    d.querySelector(".data__client__to").textContent = data["to"];
     let addZero = day < 10 ? "0" : "";
     d.querySelector(".date").textContent =
         `${addZero}${day}/${month}/${year}`;
     d.querySelector(".data__number").textContent = data["number"];
     d.querySelector(".data__subject").textContent = data["subject"];
+    d.querySelector(".data__period__value").textContent = data["period"];
+    d.querySelector(".data__issuer__phone").textContent = data["phone"];
 
 
     data["products"].forEach(product => {

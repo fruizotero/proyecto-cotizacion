@@ -143,6 +143,10 @@ body {
     width: 9rem;
 }
 
+.data__title--phone{
+    width: 8rem;
+}
+
 .data-invoice {
     display: flex;
     flex-direction: column;

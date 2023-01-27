@@ -7,7 +7,11 @@ export const saveData = () => {
     let place = d.querySelector(".place").textContent;
     let date = d.querySelector(".date").textContent;
     let name = d.querySelector(".name").value;
+    let dni = d.querySelector(".dni").value;
+    let to = d.querySelector(".to").value;
     let subject = d.querySelector(".subject").value;
+    let phone = d.querySelector(".phone").value;
+    let period = d.querySelector(".period").value;
     let products = d.querySelectorAll(".product");
     let total = d.querySelector(".total__value").value;
     let totalIgv=d.querySelector(".igv__total").value;
@@ -23,6 +27,10 @@ export const saveData = () => {
         place,
         date,
         name,
+        dni,
+        to,
+        phone,
+        period,
         subject,
         products: [],
         total,
